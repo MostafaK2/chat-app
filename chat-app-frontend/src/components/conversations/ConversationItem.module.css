@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	margin-top: 15px;
+	
+}
+
+.defualtGrpPic{
+	border-radius: 100%;
+	width: 50px;
+  	height: 50px;
+	background-image: url(../images/defaultprofilepic.jpg);
+  	background-repeat: no-repeat;
+  	background-position: 50% 50%;
+	margin-left: 0;
+	padding-right: 20px;
+}
+
+.conversationName{
+	font-weight:bolder;
+	font-size: large;
+	padding-bottom: 5px;
+}
+.lastMessege{
+	color: #bfbfbf;
+}
+
+.line{
+	background-color: black;
+	margin-top:20px;
+	width: 300%;
+
+}
+
+.colorChange{
+	background-color: #f5f7fb;
+	margin-right:20px;
+	border-radius: 20px;
+
+}

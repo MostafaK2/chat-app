@@ -1,0 +1,18 @@
+.containerLogin {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url(/src/components/images/gradienta-oPC-b39ZuzE-unsplash.jpg);
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  border-radius: 5px;
+  box-sizing: 5px;
+  margin-bottom: 40vh;
+
+}

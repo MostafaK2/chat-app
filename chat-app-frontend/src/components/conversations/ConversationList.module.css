@@ -1,0 +1,52 @@
+.itemconfiguration {
+  height: 71vh;
+  overflow-y: auto;
+  float: left;
+  position: relative;
+  margin-left: -5px;
+
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.stickToTop {
+  background-color: aliceblue;
+  position: fixed;
+  top: 0;
+
+  width: 33%;
+}
+
+.searchGroup {
+  border-radius: 20px;
+  padding: 15px;
+  border: none;
+  background-color: #ffffff;
+  width: 70%;
+}
+
+.container{
+	display: grid;
+	grid-template-rows: 0.15fr 0.1fr 1fr;
+}
+
+.plusbutton{
+  background-image: url(../images/plusbutton.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 100%;
+  object-fit: contain;
+  margin-left: 5%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.listOptions {
+  list-style: none;
+  padding-inline-start: 40px;
+}
+
