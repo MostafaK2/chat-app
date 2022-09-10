@@ -1,0 +1,42 @@
+.itemStyling {
+  background-color: #4e426d;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  height: fit-content;
+  word-break: break-word;
+  border-top-left-radius: 0;
+
+}
+
+.itemStylingAlt {
+  background-color: #f5f7fb;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  height: fit-content;
+  word-break: break-word;
+  border-top-left-radius: 0;
+}
+
+.container {
+  display: flex;
+  padding: 10px;
+}
+
+.icon {
+  background-color: brown;
+  padding: 10px;
+  margin-bottom: auto;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  text-align: left;
+}
+
+.time{
+	font-size: small;
+	text-align: center;
+}
+
+

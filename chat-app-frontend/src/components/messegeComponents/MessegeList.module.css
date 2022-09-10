@@ -1,0 +1,52 @@
+.itemconfiguration {
+  height: 70vh;
+  overflow-y: auto;
+  float: left;
+  position: relative;
+  margin-left: 0;
+  background-color: #ffffff;
+  padding-top: 20px;
+  border-radius: 20px;
+}
+
+.stickToBottom {
+  background-color: aliceblue;
+  position: fixed;
+  bottom: 3%;
+  width: 100%;
+}
+
+.test {
+  display: grid;
+  grid-template-rows: 0.3fr 1fr 0.3fr;
+}
+
+.listOptions {
+  list-style: none;
+  margin-left: 0%;
+  margin-block-start: 0;
+  padding-inline-start: 40px;
+}
+
+.sendMessegeBox {
+  border-radius: 20px;
+  padding: 15px;
+  border-color: #ffffff;
+  border:none;
+  background-color: #ffffff;
+  width: 50%;
+}
+
+.button {
+  background-image: url(../images/png-transparent-computer-icons-button-tak-products-services-co-ltd-sales-office-icon-design-send-angle-triangle-grass.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 100%;
+  object-fit: contain;
+  margin-left: 3%;
+  text-align: center;
+}

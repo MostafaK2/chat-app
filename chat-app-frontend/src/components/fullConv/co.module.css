@@ -1,0 +1,14 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-gap: 25px;
+  
+}
+.gridChild {
+
+}
+
+/* This css class is temporary and div along with it as well*/
+.pageContainer{
+  margin: 15px;
+}
