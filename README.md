@@ -22,7 +22,7 @@ Use the Url
 <code>spring.datasource.password</code>
 
 ## Running Headless
-# Frontend Application 
+### Frontend Application 
 * Move to the frontend directory <br/>
 <code>cd ./chat-app-frontend</code><br/>
 * Install Required Dependencies <br/>
@@ -32,7 +32,7 @@ Use the Url
 * Run the tests <br/>
 <code>npm test</code> <br/>
 
-# Backend Application
+### Backend Application
 * Navigate to the root backend directory <br/>
 <code>cd ./src</code><br/>
 * Run the app
