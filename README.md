@@ -13,12 +13,12 @@ Use the Url
 
 ## set up springboot
 * Navigate application.properties file <code>cd ./src/main/resources</code> </br>
-* If using a database other than mySql, then Change the following: </br>
-<code>spring.datasource.url</code> to ur sql server url </br>
+* If using a database other than mySql, then change the following: </br>
+<code>spring.datasource.url</code> to the sql server url </br>
 <code>spring.datasource.driver-class-name</code> to respective driver name </br>
 <code>spring.jpa.properties.hibernate.dialect</code> to respective dialect </br>
 * Enter your username and password for the database in these two slots
-<code>spring.datasource.username</code>
+<code>spring.datasource.username</code> and
 <code>spring.datasource.password</code>
 
 ## Running Headless
