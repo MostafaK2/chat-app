@@ -1,5 +1,5 @@
 .itemStyling {
-  background-color: #4e426d;
+  background-color: #8bd2f6;
   border-radius: 20px;
   padding: 20px;
   margin-left: 20px;
@@ -24,19 +24,35 @@
   padding: 10px;
 }
 
-.icon {
-  background-color: brown;
-  padding: 10px;
-  margin-bottom: auto;
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  text-align: left;
+.icon1 {
+    text-align: center;
+    border-radius: 50%;
+    background-color: #8bd2f6;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    padding: 20px;
+    font-style: normal;
+    vertical-align: middle;
+}
+
+.icon2 {
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f5f7fb;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  padding: 20px;
+  font-style: normal;
+  vertical-align: middle;
 }
 
 .time{
 	font-size: small;
 	text-align: center;
+}
+
+.nameHeader{
+  text-align: center;
 }
 
 

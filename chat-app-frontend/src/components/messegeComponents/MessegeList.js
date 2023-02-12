@@ -21,7 +21,7 @@ function MessegeList(props) {
   const [publicMessages, setPublicMessages] = useState([]);
 
   useEffect(() => {
-    if(currConvId){
+    if (currConvId) {
       const userByConvId = "api/v1/conversation/" + currConvId + "/users";
       fetch(userByConvId, {
         headers: {
@@ -96,8 +96,8 @@ function MessegeList(props) {
     }
   }
 
-  function getUserDetails(id){
-    if(groupUsers){
+  function getUserDetails(id) {
+    if (groupUsers) {
       return groupUsers[id];
     }
   }
@@ -108,12 +108,17 @@ function MessegeList(props) {
   }
 
   function display() {
+    const curr_user = JSON.parse(user);
     return publicMessages.map((item) => (
-      <li>
-        <div>{item.fromuser}</div>
-        <div>{item.messegeTexts}</div>
-        <div>{item.sentDatetime}</div>
-      </li>
+      <MessegeItem
+        key={item.id}
+        msg_id={item.id}
+        text={item.messegeTexts}
+        time={item.sentDatetime}
+        user_id={item.fromuser}
+        curr_user_id={curr_user.id}
+        user_details={getUserDetails(item.fromuser)}
+      />
     ));
   }
 
