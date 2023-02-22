@@ -40,7 +40,8 @@ function MessegeList(props) {
     }
   }, [currConvId]);
 
-  function connect() {
+  // connects to the sock js client
+  async function connect() {
     setConnected(true);
     var socket = new SockJS("/ws");
     stompClient = over(socket);
@@ -59,7 +60,7 @@ function MessegeList(props) {
     console.log(err);
   }
 
-  function disconnect() {
+  async function disconnect() {
     if (stompClient) {
       stompClient.disconnect(function (frame) {
         console.log("StompClient successfully  disconnected");
@@ -91,7 +92,9 @@ function MessegeList(props) {
     if (props.convId != null) {
       connect();
       setCurrConvId(props.convId);
-    } else {
+    } 
+   
+    else {
       <div>not connected</div>;
     }
   }
@@ -101,7 +104,7 @@ function MessegeList(props) {
       return groupUsers[id];
     }
   }
-
+  
   if (props.convId !== currConvId && currConvId !== null) {
     disconnect();
     setCurrConvId(props.convId);
