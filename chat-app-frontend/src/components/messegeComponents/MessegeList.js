@@ -46,6 +46,7 @@ function MessegeList(props) {
   async function connect() {
     setConnected(true);
     var socket = new SockJS("/ws");
+    
     stompClient = over(socket);
     stompClient.connect({}, onConnected, onError);
     console.log("stomp client", stompClient);
