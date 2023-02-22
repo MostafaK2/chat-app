@@ -12,6 +12,7 @@ function ListOfConversations(props) {
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
+  const [currConvId, setCurrConvId] = useState(null);
 
   function openMemberAdder(id) {
     setRegistrationId(id);
@@ -31,6 +32,7 @@ function ListOfConversations(props) {
   }
 
   function fetchMesseges(id, conversation) {
+    setCurrConvId(id)
     const url = "api/v1/conversation/" + id + "/messeges";
     const msgData = null;
     fetch(url, {
@@ -67,6 +69,7 @@ function ListOfConversations(props) {
               convId={item.id}
               convName={item.conversationName}
               conversation={item}
+              currConv = {currConvId}
             />
           ))}
         </ul>

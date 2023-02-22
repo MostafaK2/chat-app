@@ -10,7 +10,8 @@ var stompClient = null;
 // Passed in data from the outside, changes for each users
 
 function MessegeList(props) {
-  var [user, setUser] = useCurrentLocalState("", "user");
+  // assign a value and set to var if it breaks
+  const [user] = useCurrentLocalState("", "user");
   const [groupUsers, setGroupUsers] = useState(null);
 
   const [messege, setMessege] = useState("");
@@ -34,15 +35,18 @@ function MessegeList(props) {
           var dict = {};
           data.map((item) => {
             dict[item.id] = { fname: item.fname, lname: item.lname };
+            return null;
           });
           setGroupUsers(dict);
         });
     }
   }, [currConvId]);
 
-  function connect() {
+  // connects to the sock js client
+  async function connect() {
     setConnected(true);
     var socket = new SockJS("/ws");
+    
     stompClient = over(socket);
     stompClient.connect({}, onConnected, onError);
     console.log("stomp client", stompClient);
@@ -59,7 +63,7 @@ function MessegeList(props) {
     console.log(err);
   }
 
-  function disconnect() {
+  async function disconnect() {
     if (stompClient) {
       stompClient.disconnect(function (frame) {
         console.log("StompClient successfully  disconnected");
@@ -75,6 +79,9 @@ function MessegeList(props) {
   }
 
   function sendMessages() {
+    if (messege.length === 0) {
+      return;
+    }
     const temp = JSON.parse(user);
     if (stompClient) {
       var chatMessage = {
@@ -108,18 +115,23 @@ function MessegeList(props) {
   }
 
   function display() {
+    var id = 0;
     const curr_user = JSON.parse(user);
-    return publicMessages.map((item) => (
-      <MessegeItem
-        key={item.id}
-        msg_id={item.id}
-        text={item.messegeTexts}
-        time={item.sentDatetime}
-        user_id={item.fromuser}
-        curr_user_id={curr_user.id}
-        user_details={getUserDetails(item.fromuser)}
-      />
-    ));
+    return publicMessages.map((item) => {
+      // find an actual fix from the backend by sending the id generated in the chat controller
+      id -= 1
+      return (
+        <MessegeItem
+          key={id}
+          msg_id={item.id}
+          text={item.messegeTexts}
+          time={item.sentDatetime}
+          user_id={item.fromuser}
+          curr_user_id={curr_user.id}
+          user_details={getUserDetails(item.fromuser)}
+        />
+      );
+    });
   }
 
   return (

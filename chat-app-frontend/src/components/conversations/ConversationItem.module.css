@@ -1,6 +1,7 @@
 .container {
 	display: flex;
-	margin-top: 15px;
+	margin-top: 7%;
+	padding: 4%
 	
 }
 
@@ -24,16 +25,22 @@
 	color: #bfbfbf;
 }
 
-.line{
-	background-color: black;
-	margin-top:20px;
-	width: 300%;
-
+.colorChange{
+	
+	/* background-color: #f5f7fb; */
+	background-color: #ffffff; 
+	margin-right:20px;
+	border-radius: 20px;
+	
+}
+.colorChange:hover{
+	background-color: #f5f7fb;;
 }
 
-.colorChange{
+.colorChangeAlt{
 	background-color: #f5f7fb;
 	margin-right:20px;
 	border-radius: 20px;
 
 }
+
