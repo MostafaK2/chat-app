@@ -8,7 +8,6 @@ function ConversationItem(props) {
         <div>
           <div className={classes.conversationName}>{props.convName}</div>
           <div className={classes.lastMessege}>last messege</div>
-          <hr className={classes.line}></hr>
         </div>
       </div>
     </li>
