@@ -1,10 +1,9 @@
-body{
-  margin: 10px;
-}
+
 .gridContainer {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-gap: 25px;
+  margin: 10px;
   
 }
 .gridChild {
