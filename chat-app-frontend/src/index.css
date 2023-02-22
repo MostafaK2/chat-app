@@ -1,8 +1,7 @@
-body{
+body {
   margin: 0;
-  overflow-y:hidden;
+  overflow-y: hidden;
   background-color: #f5f7fb;
-  
 }
 
 .btn {
@@ -13,26 +12,28 @@ body{
   background-color: #800040;
   color: white;
   border: 1px solid #800040;
-  margin: 0 1rem; 
+  margin: 0 1rem;
 }
 
-.input{
-  padding: .75rem 1.5rem;
-  width:210px;
+.input {
+  padding: 0.75rem 1.5rem;
+  width: 210px;
   font: inherit;
   text-align: left;
   margin-bottom: 1.5rem;
   border: 1px solid;
   border-radius: 4px;
-  font-size:15px;
-  margin: 1 1rem; 
+  font-size: 15px;
+  margin: 1 1rem;
 }
 
 .registration {
+  margin-top: 0.5rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  background-color: white;
-  padding: 1rem;
+  background: rgb(249,242,184);
+  background: linear-gradient(155deg, rgba(249,242,184,1) 38%, rgba(245,108,15,1) 87%, rgba(129,51,15,1) 97%);
+  padding: 2rem;
   text-align: center;
   width: 30rem;
   z-index: 10;

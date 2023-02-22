@@ -15,5 +15,19 @@
   border-radius: 5px;
   box-sizing: 5px;
   margin-bottom: 40vh;
+}
 
+.input{
+  padding: .75rem 1.5rem;
+  width:300px;
+  font: inherit;
+  text-align: left;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size:15px;
+  margin:0.75rem 1rem; 
+}
+
+.buttonGrid{
+  margin-top: 1rem;
 }
