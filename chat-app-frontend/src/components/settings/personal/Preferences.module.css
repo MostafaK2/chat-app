@@ -8,7 +8,7 @@
 	width: 30rem;
 	z-index: 10;
 	position: fixed;
-	top: 5vh;
+	top: 20vh;
 	left: calc(50% - 15rem);
   }
 
@@ -22,7 +22,7 @@
 	width: 30rem;
 	z-index: 10;
 	position: fixed;
-	top: 5vh;
+	top: 20vh;
 	right: calc(50%);
   }
 

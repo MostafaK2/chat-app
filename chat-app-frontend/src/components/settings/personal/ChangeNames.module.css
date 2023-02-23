@@ -8,40 +8,93 @@
   width: 15rem;
   z-index: 20;
   position: fixed;
-  top: 30vh;
+  top: 27vh;
   left: calc(50% + 0.5rem);
-  
-  
+
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
 }
-.container{
-	display: grid;
-  	align-items: center;
-	gap: 1rem;
+.container {
+  display: grid;
+  align-items: center;
+  gap: 1rem;
 }
 .child {
   display: flex;
   align-items: center;
-  
 }
 
-.input{
-  padding: .75rem 1.5rem;
-  width:75%;
+.input {
+  padding: 0.75rem 1.5rem;
+  width: 75%;
   font: inherit;
   text-align: left;
   border: 1px solid;
   border-radius: 4px;
-  font-size:15px;
-  margin:2%; 
+  font-size: 15px;
+  margin: 2%;
 }
 
 .button {
-	font: inherit;
-	padding: 0.5rem 1.5rem;
-	cursor: pointer;
-	border-radius: 5px;
-	background-color: #800040;
-	color: white;
-	border: 1px solid #800040;
-	margin: 0 1rem;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 1rem;
+}
+
+/* fade in annimation */
+
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
