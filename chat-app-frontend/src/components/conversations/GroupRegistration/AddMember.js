@@ -1,6 +1,22 @@
 import { useEffect, useState } from "react";
 import useCurrentLocalState from "../../../util/storage";
 
+function useDebounceValue(value, time = 250) {
+  const [debounceValue, setDebounceValue] = useState(value);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebounceValue(value);
+    }, time);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [value, time]);
+
+  return debounceValue;
+}
+
 // on search functionality Handle errors like //// after a search
 function AddMember(props) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,11 +24,13 @@ function AddMember(props) {
 
   const [selectedUser, setSelectedUser] = useState([]);
   const [currUser, _] = useCurrentLocalState("", "user");
+  const u2 = JSON.parse(currUser);
+  const debounceQuery = useDebounceValue(searchTerm);
 
-  // fetch the users
+  // fetch the users searches users
   useEffect(() => {
-    const url = "api/v1/search/users/" + searchTerm;
-    if (searchTerm) {
+    const url = "api/v1/search/users/" + debounceQuery;
+    if (debounceQuery.length > 0) {
       fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +46,7 @@ function AddMember(props) {
     } else {
       setSearchData([]);
     }
-  }, [searchTerm]);
+  }, [debounceQuery]);
 
   function cancelHandler() {
     props.closeGroup();
@@ -82,7 +100,7 @@ function AddMember(props) {
     for (var i = 0; i < selectedUser.length; i++) {
       if (!check) {
         const id = selectedUser[i]["id"];
-        check = temp["id"] == id;
+        check = temp["id"] === id;
       } else {
         break;
       }
@@ -111,7 +129,7 @@ function AddMember(props) {
         <div>
           {searchData.map((elem) => {
             const display = elem["fname"] + " " + elem["lname"];
-            return (
+            return elem["id"] !== u2["id"] ? (
               <li
                 id={elem["id"]}
                 onClick={(event) => handleClick(event, display)}
@@ -119,7 +137,7 @@ function AddMember(props) {
               >
                 {display}
               </li>
-            );
+            ) : null;
           })}
         </div>
       </div>
