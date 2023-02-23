@@ -4,6 +4,10 @@ body {
   background-color: #f5f7fb;
 }
 
+li{
+  list-style-type: none;
+}
+
 .btn {
   font: inherit;
   padding: 0.5rem 1.5rem;

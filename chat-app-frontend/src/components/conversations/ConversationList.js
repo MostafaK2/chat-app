@@ -6,13 +6,27 @@ import { useState } from "react";
 import AddGroup from "./GroupRegistration/ConversationAdder";
 import Backdrop from "../pages/login/backdrop";
 import AddMember from "./GroupRegistration/AddMember";
+import UserHeader from "../headers/UserHeader";
+import useCurrentLocalState from "../../util/storage";
+import PersonalSettings from "../settings/PersonalSettings";
 
 function ListOfConversations(props) {
   const [groupAdderIsOpen, setGroupAdderIsOpen] = useState(false);
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
+  const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
+  const [user] = useCurrentLocalState();
+
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
   const [currConvId, setCurrConvId] = useState(null);
+
+  function openPersonalSettings() {
+    setPersonalSettingsIsOpen(true);
+  }
+
+  function closePersonalSettings() {
+    setPersonalSettingsIsOpen(false);
+  }
 
   function openMemberAdder(id) {
     setRegistrationId(id);
@@ -32,7 +46,7 @@ function ListOfConversations(props) {
   }
 
   function fetchMesseges(id, conversation) {
-    setCurrConvId(id)
+    setCurrConvId(id);
     const url = "api/v1/conversation/" + id + "/messeges";
     const msgData = null;
     fetch(url, {
@@ -49,9 +63,7 @@ function ListOfConversations(props) {
 
   return (
     <div className={classes.container}>
-      <div>
-        <h2>{props.username}</h2>
-      </div>
+      <UserHeader username={props.username} onClick={openPersonalSettings} />
       <div>
         <input
           className={classes.searchGroup}
@@ -61,6 +73,7 @@ function ListOfConversations(props) {
           .
         </button>
       </div>
+
       <div className={classes.itemconfiguration}>
         <ul className={classes.listOptions}>
           {props.convData.map((item) => (
@@ -69,7 +82,7 @@ function ListOfConversations(props) {
               convId={item.id}
               convName={item.conversationName}
               conversation={item}
-              currConv = {currConvId}
+              currConv={currConvId}
             />
           ))}
         </ul>
@@ -85,7 +98,16 @@ function ListOfConversations(props) {
           convId={registrationId}
         />
       )}
+
+      {personalSettingsIsOpen && (
+        <PersonalSettings
+          user-meta={user}
+          close={closePersonalSettings}
+          open={openPersonalSettings}
+        />
+      )}
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
+      {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}
     </div>
   );
 }
