@@ -8,17 +8,28 @@ import Backdrop from "../pages/login/backdrop";
 import AddMember from "./GroupRegistration/AddMember";
 import UserHeader from "../headers/UserHeader";
 import useCurrentLocalState from "../../util/storage";
-import PersonalSettings from "../settings/PersonalSettings";
+import PersonalSettings from "../settings/personal/PersonalSettings";
+import Preferences from "../settings/personal/Preferences";
 
 function ListOfConversations(props) {
   const [groupAdderIsOpen, setGroupAdderIsOpen] = useState(false);
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
   const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
+  const [prefrencesIsOpen, setPrefrencesIsOpen] = useState(false);
+
   const [user] = useCurrentLocalState();
 
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
   const [currConvId, setCurrConvId] = useState(null);
+
+  function openPrefrences() {
+    setPrefrencesIsOpen(true);
+  }
+
+  function closePrefrences() {
+    setPrefrencesIsOpen(false);
+  }
 
   function openPersonalSettings() {
     setPersonalSettingsIsOpen(true);
@@ -101,13 +112,17 @@ function ListOfConversations(props) {
 
       {personalSettingsIsOpen && (
         <PersonalSettings
-          user-meta={user}
           close={closePersonalSettings}
-          open={openPersonalSettings}
+          open={openPrefrences}
+          closePref={closePrefrences}
         />
       )}
+
+      {prefrencesIsOpen && <Preferences />}
+
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
       {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}
+      {prefrencesIsOpen && <Backdrop close={closePrefrences} />}
     </div>
   );
 }

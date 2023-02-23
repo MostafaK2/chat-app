@@ -1,0 +1,47 @@
+.overlay {
+  margin-top: 0.5rem;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
+  padding: 2rem;
+  text-align: center;
+  width: 15rem;
+  z-index: 20;
+  position: fixed;
+  top: 30vh;
+  left: calc(50% + 0.5rem);
+  
+  
+}
+.container{
+	display: grid;
+  	align-items: center;
+	gap: 1rem;
+}
+.child {
+  display: flex;
+  align-items: center;
+  
+}
+
+.input{
+  padding: .75rem 1.5rem;
+  width:75%;
+  font: inherit;
+  text-align: left;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size:15px;
+  margin:2%; 
+}
+
+.button {
+	font: inherit;
+	padding: 0.5rem 1.5rem;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #800040;
+	color: white;
+	border: 1px solid #800040;
+	margin: 0 1rem;
+  }
