@@ -8,7 +8,7 @@ import passImg from "../../images/SettingsLogo/changePassword.png";
 import ChangeNames from "./ChangeNames";
 import ChangePassword from "./ChangePassword";
 
-function Preferences() {
+function Preferences(props) {
   //   const [clickedSection, setClickedSection] = useState(0);
 
   //   function changeColor() {
@@ -79,7 +79,7 @@ function Preferences() {
         </div>
       </div>
       <div>
-        {changeNamesIsOpen && <ChangeNames close={closeChangeName} />}
+        {changeNamesIsOpen && <ChangeNames setUserMeta = {props.setUserMeta} close={closeChangeName} />}
         {passwordIsOpen && <ChangePassword close={closePassword} />}
       </div>
     </div>

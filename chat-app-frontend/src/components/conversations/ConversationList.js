@@ -2,7 +2,7 @@ import ConversationItem from "./ConversationItem";
 import ConvSearchHeader from "./ConvSearchHeader";
 
 import classes from "./ConversationList.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddGroup from "./GroupRegistration/ConversationAdder";
 import Backdrop from "../pages/login/backdrop";
 import AddMember from "./GroupRegistration/AddMember";
@@ -12,7 +12,8 @@ import PersonalSettings from "../settings/personal/PersonalSettings";
 import Preferences from "../settings/personal/Preferences";
 
 function ListOfConversations(props) {
-  const[user] = useCurrentLocalState("", "user");
+  const [user] = useCurrentLocalState("", "user");
+  const [userMeta, setUserMeta] = useState(JSON.parse(user))
 
   const [groupAdderIsOpen, setGroupAdderIsOpen] = useState(false);
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
@@ -71,11 +72,23 @@ function ListOfConversations(props) {
         props.openMesseges(data, id, conversation);
       });
   }
+  
 
+  function capitalizeName() {
+    var temp = userMeta;
+    const lname = temp.lname.charAt(0).toUpperCase() + temp.lname.slice(1);
+    const fname = temp.fname.charAt(0).toUpperCase() + temp.fname.slice(1);
+    return fname + " " + lname;
+  }
+  const [username, setUsername] = useState(capitalizeName());
+  useEffect(() => {
+    setUsername(capitalizeName());
+  }, [userMeta]);
+ 
 
   return (
     <div className={classes.container}>
-      <UserHeader username={props.username} onClick={openPersonalSettings} />
+      <UserHeader username={username} onClick={openPersonalSettings} />
       <div>
         <input
           className={classes.searchGroup}
@@ -119,7 +132,7 @@ function ListOfConversations(props) {
         />
       )}
 
-      {prefrencesIsOpen && <Preferences />}
+      {prefrencesIsOpen && <Preferences setUserMeta={setUserMeta}/>}
 
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
       {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}

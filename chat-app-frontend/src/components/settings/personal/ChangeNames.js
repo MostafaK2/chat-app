@@ -33,8 +33,8 @@ function ChangeNames(props) {
     // also update the local storage to fix the error of the name not showing up
     user.fname = firstName.length > 0 ? firstName : user.fname;
     user.lname = lastName.length > 0 ? lastName : user.lname;
-    
-    localStorage.setItem("user", JSON.stringify(user))
+    props.setUserMeta(user);
+    localStorage.setItem("user", JSON.stringify(user));
     props.close();
     return;
   }
