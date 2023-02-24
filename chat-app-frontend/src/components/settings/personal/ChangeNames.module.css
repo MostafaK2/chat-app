@@ -10,6 +10,8 @@
   position: fixed;
   top: 27vh;
   left: calc(50% + 0.5rem);
+  position: fixed;
+  animation: stayFixed 1s ease-in;
 
   animation: fadeIn ease 2s;
   -webkit-animation: fadeIn ease 2s;
@@ -50,9 +52,6 @@
 }
 
 /* fade in annimation */
-
-
-
 
 @keyframes fadeIn {
   0% {
@@ -96,5 +95,14 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes stayFixed {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translateX(0);
   }
 }
