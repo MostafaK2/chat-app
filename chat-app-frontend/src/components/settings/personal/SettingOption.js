@@ -1,11 +1,13 @@
 import classes from "../../conversations/ConversationItem.module.css";
 import sClasses from "./PersonalSettings.module.css";
+import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+
 
 function SettingOption(props) {
   const [clickedSection, setClickedSection] = useState(0);
+  const navigate = useNavigate();
 
   function changeColor() {
     if (clickedSection == props.clickedId) {
@@ -22,7 +24,8 @@ function SettingOption(props) {
     else if (props.id === 6) {
       localStorage.removeItem("jwt");
       localStorage.removeItem("user");
-      window.location.replace('./login');
+      navigate("/login")
+      
     }
     return props.callback(props.id);
   }

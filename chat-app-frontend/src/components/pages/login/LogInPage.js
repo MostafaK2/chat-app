@@ -53,7 +53,6 @@ function LogInPage() {
         if (data != null) {
           const d = JSON.stringify(data);
           localStorage.setItem("user", d);  
-          console.log("the user data," + d);
           navigate("/main-page");
         }
       });

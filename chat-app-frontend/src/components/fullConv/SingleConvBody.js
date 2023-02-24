@@ -4,7 +4,7 @@ import convHeader from "../conversations/ConvSearchHeader";
 
 import classes from "./co.module.css";
 import useCurrentLocalState from "../../util/storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SingleConvBody() {
   var [user, setUser] = useCurrentLocalState("", "user");
@@ -22,7 +22,7 @@ function SingleConvBody() {
   //end try
 
   var fetchString = "api/v1/user/" + user.id + "/conversations";
-  
+
   if (!switchWebsock) {
     fetch(fetchString, {
       headers: {
@@ -47,20 +47,23 @@ function SingleConvBody() {
       });
   }
 
-  console.log(groupUsers);
-
   function handleClick(data, id, conversation) {
     setConv(conversation);
     setClickedConversationId(id);
     setMsgData(data);
   }
-
-  // capitalizes the first and last name of the user and returns
   function capitalizeName() {
     const lname = user.lname.charAt(0).toUpperCase() + user.lname.slice(1);
     const fname = user.fname.charAt(0).toUpperCase() + user.fname.slice(1);
     return fname + " " + lname;
   }
+
+  const [username, setUsername] = useState(capitalizeName());
+  useEffect(() => {
+    setUsername(capitalizeName());
+  }, [username]);
+
+  // capitalizes the first and last name of the user and returns
 
   return (
     <div className={classes.pageContainer}>
@@ -69,7 +72,7 @@ function SingleConvBody() {
           setGroupUsers={setGroupUsers}
           openMesseges={handleClick}
           convData={conversations}
-          username={capitalizeName()}
+          username={username}
         />
         {console.log(msgData)}
         <MessegeList

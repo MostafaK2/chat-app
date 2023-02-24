@@ -12,12 +12,12 @@ import PersonalSettings from "../settings/personal/PersonalSettings";
 import Preferences from "../settings/personal/Preferences";
 
 function ListOfConversations(props) {
+  const[user] = useCurrentLocalState("", "user");
+
   const [groupAdderIsOpen, setGroupAdderIsOpen] = useState(false);
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
   const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
   const [prefrencesIsOpen, setPrefrencesIsOpen] = useState(false);
-
-  const [user] = useCurrentLocalState();
 
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
@@ -71,6 +71,7 @@ function ListOfConversations(props) {
         props.openMesseges(data, id, conversation);
       });
   }
+
 
   return (
     <div className={classes.container}>
