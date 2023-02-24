@@ -53,7 +53,13 @@ function SingleConvBody() {
     setConv(conversation);
     setClickedConversationId(id);
     setMsgData(data);
-    
+  }
+
+  // capitalizes the first and last name of the user and returns
+  function capitalizeName() {
+    const lname = user.lname.charAt(0).toUpperCase() + user.lname.slice(1);
+    const fname = user.fname.charAt(0).toUpperCase() + user.fname.slice(1);
+    return fname + " " + lname;
   }
 
   return (
@@ -63,14 +69,13 @@ function SingleConvBody() {
           setGroupUsers={setGroupUsers}
           openMesseges={handleClick}
           convData={conversations}
-          username={user.username}
+          username={capitalizeName()}
         />
         {console.log(msgData)}
         <MessegeList
           msgData={msgData}
           convId={clickedConversationId}
           conversation={conv}
-          
         />
       </div>
     </div>

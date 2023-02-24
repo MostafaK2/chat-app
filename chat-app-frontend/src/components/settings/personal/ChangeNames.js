@@ -1,22 +1,42 @@
 import classes from "./ChangeNames.module.css";
 import { useState } from "react";
+import useCurrentLocalState from "../../../util/storage";
 
 function ChangeNames(props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
- 
+  var [user, setUser] = useCurrentLocalState("", "user");
+  user = JSON.parse(user);
 
   // PUT update values
   function saveInformation() {
-    
-    if(firstName > 0 && lastName > 0){
-      
+    if (firstName.length === 0 && lastName.length === 0) {
+      // create a pop up
+      return;
     }
+
+    const data = {
+      fname: firstName,
+      lname: lastName
+    };
+
+    const url = "api/v1/users/" + user.id;
+
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify(data),
+    }).then((response) => response.json());
+
+     // also update the local storage to fix the error of the name not showing up
+     // update the jwt token
+
     props.close();
     return;
   }
 
-  
   return (
     <div className={classes.overlay}>
       <div className={classes.container}>
