@@ -1,7 +1,7 @@
 import MessegeItem from "./MessegeItem";
 import MessageHeader from "../headers/MessageHeader";
 import classes from "./MessegeList.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useAnimatedRef } from "react";
 
 import { over } from "stompjs";
 import SockJS from "sockjs-client";
@@ -20,6 +20,20 @@ function MessegeList(props) {
   // propably switch this after
   const [currConvId, setCurrConvId] = useState(null);
   const [publicMessages, setPublicMessages] = useState([]);
+
+  // scrolling code
+  const ref = useRef(null);
+  
+  useEffect(()=>{
+    if(ref){
+      ref.current.addEventListener('DOMNodeInserted', event => {
+        const {currentTarget: target} = event;
+        console.log(target);
+        target.scroll({top: target.scrollHeight, behaivor:'smooth'});
+      })
+    }
+  }, [])
+  // end scrolling code
 
   useEffect(() => {
     if (currConvId) {
@@ -46,7 +60,7 @@ function MessegeList(props) {
   async function connect() {
     setConnected(true);
     var socket = new SockJS("/ws");
-    
+
     stompClient = over(socket);
     stompClient.connect({}, onConnected, onError);
     console.log("stomp client", stompClient);
@@ -91,6 +105,7 @@ function MessegeList(props) {
       };
       stompClient.send("/app/group-message", {}, JSON.stringify(chatMessage));
     }
+    setMessege("");
   }
 
   function onConversationClicked() {
@@ -119,7 +134,7 @@ function MessegeList(props) {
     const curr_user = JSON.parse(user);
     return publicMessages.map((item) => {
       // find an actual fix from the backend by sending the id generated in the chat controller
-      id -= 1
+      id -= 1;
       return (
         <MessegeItem
           key={id}
@@ -138,7 +153,7 @@ function MessegeList(props) {
     <div className={classes.test}>
       <MessageHeader conversation={props.conversation} />
       {console.log("the conversation Id ", currConvId)}
-      <div className={classes.itemconfiguration}>
+      <div ref =  {ref} className={classes.itemconfiguration}>
         <ul className={classes.listOptions}>
           {props.msgData.map((msg_meta) => {
             const curr_user = JSON.parse(user);
@@ -165,7 +180,14 @@ function MessegeList(props) {
           id="messege"
           onChange={(elem) => setMessege(elem.target.value)}
           className={classes.sendMessegeBox}
-        ></input>
+          value={messege}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              sendMessages();
+            }
+          }}
+        />
+
         <button className={classes.button} onClick={sendMessages}>
           .
         </button>

@@ -3,7 +3,7 @@ import classes from "./MainPage.module.css";
 
 function MainPage() {
   return (
-    <div >
+    <div className={classes.containerLogin}>
       <SingleConvBody />
     </div>
   );

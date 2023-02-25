@@ -46,7 +46,7 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.PUT, value="users/{id}")
 	public void addUser(@RequestBody User user, @PathVariable int id) {
-		userService.updateUser(user);
+		userService.updateUser(user, id);
 	}
 	
 	// Deletes the user from the database, implement deleting user from messege groups and password tables

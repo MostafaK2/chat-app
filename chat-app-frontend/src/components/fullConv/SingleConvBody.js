@@ -4,7 +4,7 @@ import convHeader from "../conversations/ConvSearchHeader";
 
 import classes from "./co.module.css";
 import useCurrentLocalState from "../../util/storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SingleConvBody() {
   var [user, setUser] = useCurrentLocalState("", "user");
@@ -22,7 +22,7 @@ function SingleConvBody() {
   //end try
 
   var fetchString = "api/v1/user/" + user.id + "/conversations";
-  
+
   if (!switchWebsock) {
     fetch(fetchString, {
       headers: {
@@ -47,14 +47,15 @@ function SingleConvBody() {
       });
   }
 
-  console.log(groupUsers);
-
   function handleClick(data, id, conversation) {
     setConv(conversation);
     setClickedConversationId(id);
     setMsgData(data);
-    
   }
+  
+
+ 
+  // capitalizes the first and last name of the user and returns
 
   return (
     <div className={classes.pageContainer}>
@@ -63,14 +64,12 @@ function SingleConvBody() {
           setGroupUsers={setGroupUsers}
           openMesseges={handleClick}
           convData={conversations}
-          username={user.username}
         />
         {console.log(msgData)}
         <MessegeList
           msgData={msgData}
           convId={clickedConversationId}
           conversation={conv}
-          
         />
       </div>
     </div>

@@ -25,12 +25,12 @@
   width: 70%;
 }
 
-.container{
-	display: grid;
-	grid-template-rows: 0.15fr 0.1fr 1fr;
+.container {
+  display: grid;
+  grid-template-rows: 0.15fr 0.1fr 1fr;
 }
 
-.plusbutton{
+.plusbutton {
   background-image: url(../images/plusbutton.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -43,6 +43,10 @@
   margin-left: 5%;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
+}
+.plusbutton:hover {
+  animation: tap 1s ease-in-out;
 }
 
 .listOptions {
@@ -50,3 +54,11 @@
   padding-inline-start: 40px;
 }
 
+@keyframes tap {
+  from {
+    transform: translateY(3px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

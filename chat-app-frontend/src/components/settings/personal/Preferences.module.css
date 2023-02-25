@@ -1,0 +1,75 @@
+.box {
+	margin-top: 0.5rem;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+	background: rgb(255, 255, 255);
+	padding: 2rem;
+	text-align: left;
+	width: 30rem;
+	z-index: 10;
+	position: fixed;
+	top: 20vh;
+	left: calc(50% - 15rem);
+	animation: moveRight 1s ease-in;
+  }
+  
+
+  .boxalt {
+	margin-top: 0.5rem;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+	background: rgb(255, 255, 255);
+	padding: 2rem;
+	text-align: left;
+	width: 30rem;
+	z-index: 10;
+	position: fixed;
+	top: 20vh;
+	right: calc(50%);
+	animation: slideInRight 1s ease-in;
+	
+  }
+
+  .container {
+	display:grid;
+	gap:0.5rem;
+	align-items: center;
+  }
+
+  .child{
+	display:flex;
+	gap:1rem;
+	align-items: center;
+	padding-left: 4%;
+  }
+
+  .childGrid{
+	display:grid;
+	gap:0.3rem;
+	
+  }
+
+  .circle{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background-color: blue;
+  }
+
+  @keyframes moveRight {
+	from{
+		transform: translateX(-300px);
+	}
+	to{
+		transform:translateX(0)
+	}
+  }
+
+  @keyframes slideInRight {
+	from {
+		transform: translateX(300px);
+	}
+	to{
+		transform: translateX(0);
+	}
+  }

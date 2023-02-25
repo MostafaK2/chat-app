@@ -50,8 +50,21 @@ public class UserService {
 	}
 
 
-	public void updateUser(User user) {
-		userRepository.save(user);
+	public void updateUser(User newUser, int id) {
+		userRepository.findById(id)
+        .map(user -> {
+        	String fname = newUser.getFname();
+        	String lname = newUser.getLname();
+        	
+        	if(fname.length() > 0) {
+        		user.setFname(fname);
+        	}
+        	if(lname.length() > 0) {
+        		user.setLname(lname);
+        	}
+            return userRepository.save(user);
+        });
+        
 		
 	}
 

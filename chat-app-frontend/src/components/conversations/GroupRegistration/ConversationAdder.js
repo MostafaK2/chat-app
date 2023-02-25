@@ -10,6 +10,9 @@ function AddGroup(props) {
   // is then used in addMembers to add users to a specific conversations.)
   function saveGroup() {
     var id = -1;
+    if(groupName.length == 0){
+      return
+    }
     const data = {
       conversationName: groupName,
     };
@@ -39,16 +42,17 @@ function AddGroup(props) {
     <div className="registration">
       <h1>Add Group</h1>
       <div>
-        <label>Group Name</label>
         <input
+          placeholder="Set Group Name"
+          className="input"
           type="group-name"
           id="groupName"
           onChange={(elem) => setGroupName(elem.target.value)}
         ></input>
       </div>
       <div>
-        <button onClick={cancelHandler}>cancel</button>
-        <button onClick={saveGroup}>Add Group</button>
+        <button className = "btn" onClick={cancelHandler}>cancel</button>
+        <button className = "btn" onClick={saveGroup}>Add Group</button>
       </div>
     </div>
   );

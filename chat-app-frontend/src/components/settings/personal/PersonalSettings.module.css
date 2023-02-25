@@ -1,0 +1,21 @@
+.box {
+  margin-top: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
+  padding: 2rem;
+  text-align: left;
+  width: 15rem;
+  z-index: 10;
+  position: fixed;
+  top: 5vh;
+  right: calc(100% - 25rem);
+}
+
+.container {
+  display: flex;
+  margin-top: 1%;
+  padding: 5%;
+  align-items: center;
+  gap: 1rem;
+}
