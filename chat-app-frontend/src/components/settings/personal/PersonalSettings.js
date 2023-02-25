@@ -35,6 +35,7 @@ function PersonalSettings(props) {
         callback={callback}
         name="Help"
         img={help}
+        open={props.openContactMe}
       />
       <SettingOption
         id={3}
@@ -42,6 +43,7 @@ function PersonalSettings(props) {
         callback={callback}
         name="About"
         img={about}
+        
       />
       <SettingOption
         id={4}

@@ -55,7 +55,7 @@ function Preferences(props) {
           <li className={highlights.colorChange}>
             <div className={classes.child}>
               <div className={classes.circle}></div>
-              <h4>Mostafa Kamal</h4>
+              <h4>{props.username}</h4>
             </div>
           </li>
 
@@ -79,7 +79,12 @@ function Preferences(props) {
         </div>
       </div>
       <div>
-        {changeNamesIsOpen && <ChangeNames setUserMeta = {props.setUserMeta} close={closeChangeName} />}
+        {changeNamesIsOpen && (
+          <ChangeNames
+            setUserMeta={props.setUserMeta}
+            close={closeChangeName}
+          />
+        )}
         {passwordIsOpen && <ChangePassword close={closePassword} />}
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
+import terms from "../../images/termsChatgbt.pdf";
 
 function SettingOption(props) {
   const [clickedSection, setClickedSection] = useState(0);
@@ -18,14 +19,16 @@ function SettingOption(props) {
 
   function onClick() {
     setClickedSection(props.id);
-    if (props.id == 1) {
+    if (props.id === 1 || props.id === 2) {
       props.open();
-    }
-    else if (props.id === 6) {
+    } else if (props.id === 3) {
+      navigate("/");
+    } else if (props.id === 4 || props.id === 5) {
+      window.open(terms, "_blank");
+    } else if (props.id === 6) {
       localStorage.removeItem("jwt");
       localStorage.removeItem("user");
-      navigate("/login")
-      
+      navigate("/login");
     }
     return props.callback(props.id);
   }

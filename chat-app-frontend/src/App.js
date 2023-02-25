@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import LogInPage from "./components/pages/login/LogInPage";
-import SettingPage from "./components/pages/SettingPage";
+import LandingPage from "./components/pages/LandingPage";
 import MainPage from "./components/pages/MainPage";
 import "./index.css";
 import PrivateRoute from "./privateRoute/private";
@@ -29,15 +29,12 @@ function App() {
           </PrivateRoute>
         }
       />
-
-      {/* <Route
-        path="/settings"
-        element={
-          <PrivateRoute>
-            <SettingPage />
-          </PrivateRoute>
+      <Route
+        path="/"
+        element={ 
+          <LandingPage />
         }
-      /> */}
+      />
     </Routes>
   );
 }

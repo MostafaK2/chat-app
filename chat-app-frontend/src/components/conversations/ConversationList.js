@@ -10,6 +10,7 @@ import UserHeader from "../headers/UserHeader";
 import useCurrentLocalState from "../../util/storage";
 import PersonalSettings from "../settings/personal/PersonalSettings";
 import Preferences from "../settings/personal/Preferences";
+import ContactMe from "../pages/ContactMe";
 
 function ListOfConversations(props) {
   const [user] = useCurrentLocalState("", "user");
@@ -19,6 +20,7 @@ function ListOfConversations(props) {
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
   const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
   const [prefrencesIsOpen, setPrefrencesIsOpen] = useState(false);
+  const [contactMeIsOpen, setContactMeIsOpen] = useState(false);
 
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
@@ -55,6 +57,14 @@ function ListOfConversations(props) {
 
   function closeGroupRegistration() {
     setGroupAdderIsOpen(false);
+  }
+
+  function openContactMe(){
+    setContactMeIsOpen(true);
+  }
+
+  function closeContactMe(){
+    setContactMeIsOpen(false);
   }
 
   function fetchMesseges(id, conversation) {
@@ -129,14 +139,17 @@ function ListOfConversations(props) {
           close={closePersonalSettings}
           open={openPrefrences}
           closePref={closePrefrences}
+          openContactMe = {openContactMe}
         />
       )}
 
-      {prefrencesIsOpen && <Preferences setUserMeta={setUserMeta}/>}
+      {prefrencesIsOpen && <Preferences username={username} setUserMeta={setUserMeta}/>}
+      {contactMeIsOpen && <ContactMe />}
 
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
       {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}
       {prefrencesIsOpen && <Backdrop close={closePrefrences} />}
+      {contactMeIsOpen && <Backdrop close={closeContactMe} />}
     </div>
   );
 }
