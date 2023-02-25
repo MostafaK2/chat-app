@@ -31,16 +31,20 @@
 	background-color: #ffffff; 
 	margin-right:20px;
 	border-radius: 20px;
+	cursor:pointer;
+
 	
 }
 .colorChange:hover{
-	background-color: #f5f7fb;;
+	background-color: #f5f7fb;
 }
 
 .colorChangeAlt{
 	background-color: #f5f7fb;
 	margin-right:20px;
 	border-radius: 20px;
+	cursor:pointer;
+
 
 }
 
