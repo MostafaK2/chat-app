@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import AddMember from "./AddMember";
 
 function AddGroup(props) {
+  const [groupName, setGroupName] = useState("");
+  
   function cancelHandler() {
     props.close();
   }
@@ -36,7 +38,7 @@ function AddGroup(props) {
   }
   // f2
 
-  const [groupName, setGroupName] = useState("");
+  
 
   return (
     <div className="registration">
