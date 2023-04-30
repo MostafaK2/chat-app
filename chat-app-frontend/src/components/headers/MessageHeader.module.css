@@ -3,3 +3,18 @@
   padding-bottom: 0px;
   height: fit-content;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.animate:hover {
+  border-radius: 50%;
+  background-color: #d8d8d8;
+  padding: 3px;
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+}

@@ -131,6 +131,7 @@ function ListOfConversations(props) {
           close={closeMemberAdder}
           closeGroup={closeGroupRegistration}
           convId={registrationId}
+          
         />
       )}
 
