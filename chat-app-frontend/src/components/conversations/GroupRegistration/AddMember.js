@@ -58,32 +58,65 @@ function AddMember(props) {
     const convId = props.convId;
     const parsedUser = JSON.parse(currUser);
 
-    const url =
-      "api/v1/user/" +
-      parsedUser["id"] +
-      "/conversation/" +
-      convId +
-      "/messegegroups";
-    
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    }).then((response) => console.log(response.json));
-
-    selectedUser.forEach((elem) => {
-      const memId = elem["id"];
+    const memberAddAll = async () => {
       const url =
-        "api/v1/user/" + memId + "/conversation/" + convId + "/messegegroups";
+        "api/v1/user/" +
+        parsedUser["id"] +
+        "/conversation/" +
+        convId +
+        "/messegegroups";
 
-      fetch(url, {
+      await fetch(url, {
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
       }).then((response) => console.log(response.json));
-    });
+
+      selectedUser.forEach((elem) => {
+        const memId = elem["id"];
+        const url =
+          "api/v1/user/" + memId + "/conversation/" + convId + "/messegegroups";
+        const addSelectedUser = async () => {
+          await fetch(url, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+          }).then((response) => console.log(response.json));
+        };
+        addSelectedUser();
+      });
+
+      await fetch(props.fetchString, {
+        headers: {
+          "Content-Type": "application/json",
+          // 'Accept': 'application/json'
+        },
+        method: "GET",
+      })
+        .then((response) => {
+          const status = response.status;
+          if (status === 401 || status === 403) {
+            console.log("unauthorized");
+          } else if (status === 200) {
+            return response.json();
+          } else {
+            console.log("something went wrong");
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          props.setConversations(data);
+          // props.setSwitchWebsock(true);
+        });
+    };
+
+    memberAddAll();
+
+    //new code
+
+    //end ofnew code
 
     props.closeGroup();
     props.close();

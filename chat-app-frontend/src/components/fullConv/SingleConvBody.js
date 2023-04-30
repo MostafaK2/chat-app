@@ -52,9 +52,7 @@ function SingleConvBody() {
     setClickedConversationId(id);
     setMsgData(data);
   }
-  
 
- 
   // capitalizes the first and last name of the user and returns
 
   return (
@@ -64,7 +62,9 @@ function SingleConvBody() {
           setGroupUsers={setGroupUsers}
           openMesseges={handleClick}
           convData={conversations}
-          
+          fetchString={fetchString}
+          setConversations={setConversations}
+          setSwitchWebsock={setSwitchWebsock}
         />
         {console.log(msgData)}
         <MessegeList
