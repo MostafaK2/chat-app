@@ -126,12 +126,17 @@ function ListOfConversations(props) {
       {groupAdderIsOpen && (
         <AddGroup close={closeGroupRegistration} open={openMemberAdder} />
       )}
+      {console.log("props in Convo List:  "+ props.fetchString)}
+      
       {memberAdderIsOpen && (
         <AddMember
           close={closeMemberAdder}
           closeGroup={closeGroupRegistration}
           convId={registrationId}
-          
+
+          fetchString = {props.fetchString}
+          setConversations = {props.setConversations}
+          setSwitchWebsock = {props.setSwitchWebsock}  
         />
       )}
 
