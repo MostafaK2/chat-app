@@ -14,24 +14,28 @@ function ChangePassword(props) {
   return (
     <div className={classes.overlay}>
       <div className={classes.container}>
+        <h2>Change Password</h2>
         <input
-		  className={classes.input}
+          className={classes.input}
           placeholder="Current Password"
           type="password"
           onChange={(elem) => setOldPassword(elem.target.value)}
         ></input>
         <input
-		className={classes.input}
+          className={classes.input}
           placeholder="Old Password"
           type="password"
           onChange={(elem) => setNewPassword(elem.target.value)}
         ></input>
 
         <div className={classes.child}>
-          <button className = {classes.button} onClick={() => props.close()}>Cancel</button>
-          <button className = {classes.button} onClick={saveInformation}>Save</button>
+          <button className="button-28" onClick={() => props.close()}>
+            Cancel
+          </button>
+          <button className="button-28 accept" onClick={saveInformation}>
+            Save
+          </button>
         </div>
-
       </div>
     </div>
   );

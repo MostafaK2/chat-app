@@ -14,14 +14,14 @@ import ContactMe from "../pages/ContactMe";
 
 function ListOfConversations(props) {
   const [user] = useCurrentLocalState("", "user");
-  const [userMeta, setUserMeta] = useState(JSON.parse(user))
+  const [userMeta, setUserMeta] = useState(JSON.parse(user));
 
   const [groupAdderIsOpen, setGroupAdderIsOpen] = useState(false);
   const [memberAdderIsOpen, setMemberAdderIsOpen] = useState(false);
   const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
   const [prefrencesIsOpen, setPrefrencesIsOpen] = useState(false);
   const [contactMeIsOpen, setContactMeIsOpen] = useState(false);
-
+  
   const [registrationId, setRegistrationId] = useState(null);
   const [conversationId, setConversationId] = useState(null);
   const [currConvId, setCurrConvId] = useState(null);
@@ -59,13 +59,15 @@ function ListOfConversations(props) {
     setGroupAdderIsOpen(false);
   }
 
-  function openContactMe(){
+  function openContactMe() {
     setContactMeIsOpen(true);
   }
 
-  function closeContactMe(){
+  function closeContactMe() {
     setContactMeIsOpen(false);
   }
+
+
 
   function fetchMesseges(id, conversation) {
     setCurrConvId(id);
@@ -82,7 +84,6 @@ function ListOfConversations(props) {
         props.openMesseges(data, id, conversation);
       });
   }
-  
 
   function capitalizeName() {
     var temp = userMeta;
@@ -94,7 +95,6 @@ function ListOfConversations(props) {
   useEffect(() => {
     setUsername(capitalizeName());
   }, [userMeta]);
- 
 
   return (
     <div className={classes.container}>
@@ -126,17 +126,16 @@ function ListOfConversations(props) {
       {groupAdderIsOpen && (
         <AddGroup close={closeGroupRegistration} open={openMemberAdder} />
       )}
-      {console.log("props in Convo List:  "+ props.fetchString)}
-      
+      {console.log("props in Convo List:  " + props.fetchString)}
+
       {memberAdderIsOpen && (
         <AddMember
           close={closeMemberAdder}
           closeGroup={closeGroupRegistration}
           convId={registrationId}
-
-          fetchString = {props.fetchString}
-          setConversations = {props.setConversations}
-          setSwitchWebsock = {props.setSwitchWebsock}  
+          fetchString={props.fetchString}
+          setConversations={props.setConversations}
+          setSwitchWebsock={props.setSwitchWebsock}
         />
       )}
 
@@ -145,17 +144,21 @@ function ListOfConversations(props) {
           close={closePersonalSettings}
           open={openPrefrences}
           closePref={closePrefrences}
-          openContactMe = {openContactMe}
+          openContactMe={openContactMe}
         />
       )}
 
-      {prefrencesIsOpen && <Preferences username={username} setUserMeta={setUserMeta}/>}
+      {prefrencesIsOpen && (
+        <Preferences username={username} setUserMeta={setUserMeta} />
+      )}
       {contactMeIsOpen && <ContactMe />}
+      
 
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
       {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}
       {prefrencesIsOpen && <Backdrop close={closePrefrences} />}
       {contactMeIsOpen && <Backdrop close={closeContactMe} />}
+      
     </div>
   );
 }

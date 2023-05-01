@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./ConversationSettings.module.css";
 
 function ConversationSettings(props) {
   const [openShowUsers, setShowUser] = useState(false);
@@ -12,7 +13,7 @@ function ConversationSettings(props) {
     setChangeGroupName(!changeGroupName);
   }
   return (
-    <div>
+    <div className={[styles["box"]]}>
       <div>
         Show Users
         <button onClick={openUsers}> Open Users</button>

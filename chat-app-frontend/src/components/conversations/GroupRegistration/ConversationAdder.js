@@ -53,8 +53,8 @@ function AddGroup(props) {
         ></input>
       </div>
       <div>
-        <button className = "btn" onClick={cancelHandler}>cancel</button>
-        <button className = "btn" onClick={saveGroup}>Add Group</button>
+        <button className = "button-28" onClick={cancelHandler}>cancel</button>
+        <button className = "button-28 accept" onClick={saveGroup}>Add Group</button>
       </div>
     </div>
   );

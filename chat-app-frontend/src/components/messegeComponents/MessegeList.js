@@ -1,5 +1,8 @@
 import MessegeItem from "./MessegeItem";
 import MessageHeader from "../headers/MessageHeader";
+import ConversationSettings from "../settings/conversational/ConversationSettings";
+import Backdrop from "../pages/login/backdrop";
+
 import classes from "./MessegeList.module.css";
 import { useState, useEffect, useRef, useAnimatedRef } from "react";
 
@@ -13,26 +16,34 @@ function MessegeList(props) {
   // assign a value and set to var if it breaks
   const [user] = useCurrentLocalState("", "user");
   const [groupUsers, setGroupUsers] = useState(null);
-
   const [messege, setMessege] = useState("");
-
   const [connected, setConnected] = useState(false);
-  // propably switch this after
   const [currConvId, setCurrConvId] = useState(null);
   const [publicMessages, setPublicMessages] = useState([]);
 
+  const [conversationSettingsIsOpen, setConversationSettingsIsOpen] =
+    useState(false);
+
+  function openConversationSettings() {
+    setConversationSettingsIsOpen(true);
+  }
+
+  function closeConversationSettings() {
+    setConversationSettingsIsOpen(false);
+  }
+
   // scrolling code
   const ref = useRef(null);
-  
-  useEffect(()=>{
-    if(ref){
-      ref.current.addEventListener('DOMNodeInserted', event => {
-        const {currentTarget: target} = event;
+
+  useEffect(() => {
+    if (ref) {
+      ref.current.addEventListener("DOMNodeInserted", (event) => {
+        const { currentTarget: target } = event;
         console.log(target);
-        target.scroll({top: target.scrollHeight, behaivor:'smooth'});
-      })
+        target.scroll({ top: target.scrollHeight, behaivor: "smooth" });
+      });
     }
-  }, [])
+  }, []);
   // end scrolling code
 
   useEffect(() => {
@@ -151,9 +162,12 @@ function MessegeList(props) {
 
   return (
     <div className={classes.test}>
-      <MessageHeader conversation={props.conversation} />
+      <MessageHeader
+        conversation={props.conversation}
+        openConversationSettings={openConversationSettings}
+      />
       {console.log("the conversation Id ", currConvId)}
-      <div ref =  {ref} className={classes.itemconfiguration}>
+      <div ref={ref} className={classes.itemconfiguration}>
         <ul className={classes.listOptions}>
           {props.msgData.map((msg_meta) => {
             const curr_user = JSON.parse(user);
@@ -173,6 +187,7 @@ function MessegeList(props) {
         </ul>
         {!connected ? onConversationClicked() : console.log("connected")}
       </div>
+
       <div className={classes.stickToBottom}>
         <input
           type="text"
@@ -192,6 +207,11 @@ function MessegeList(props) {
           .
         </button>
       </div>
+
+      {conversationSettingsIsOpen && <ConversationSettings />}
+      {conversationSettingsIsOpen && (
+        <Backdrop close={closeConversationSettings} />
+      )}
     </div>
   );
 }

@@ -4,27 +4,13 @@ body {
   background-color: #f5f7fb;
 }
 
-li{
+li {
   list-style-type: none;
 }
 
 * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.btn {
-  font: inherit;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #800040;
-  color: white;
-  border: 1px solid #800040;
-  margin: 0 1rem;
-  transition: transform 0.2s ease-in;
-}
-.btn:hover{
-  transform: translateY(5px);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .input {
@@ -43,8 +29,13 @@ li{
   margin-top: 0.5rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  background: rgb(249,242,184);
-  background: linear-gradient(155deg, rgba(249,242,184,1) 38%, rgba(245,108,15,1) 87%, rgba(129,51,15,1) 97%);
+  background: rgb(249, 242, 184);
+  background: linear-gradient(
+    155deg,
+    rgba(249, 242, 184, 1) 38%,
+    rgba(245, 108, 15, 1) 87%,
+    rgba(129, 51, 15, 1) 97%
+  );
   padding: 2rem;
   text-align: center;
   width: 30rem;
@@ -62,4 +53,74 @@ li{
   height: 100vh;
   top: 0;
   left: 0;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 1rem;
+  transition: transform 0.2s ease-in;
+}
+.btn:hover {
+  transform: translateY(5px);
+}
+
+/* CSS */
+.button-28 {
+  padding: 0.5rem 1.5rem;
+  margin: 0 1rem;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  /* margin: 0; */
+  min-height: 50px;
+  min-width: 0;
+  outline: none;
+  /* padding: 16px 24px; */
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* width: 100%; */
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #800040;
+
+  transform: translateY(3px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  /* transform: translateY(-2px); */
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.button-28.accept:hover {
+  background-color: aqua;
+  color: black;
 }

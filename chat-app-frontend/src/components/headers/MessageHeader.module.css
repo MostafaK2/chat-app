@@ -11,10 +11,10 @@
 }
 
 .animate:hover {
-  border-radius: 50%;
+  border-radius: 10px 10px;
   background-color: #d8d8d8;
-  padding: 3px;
+  padding: 5px;
   cursor: pointer;
   transition-timing-function: ease-in-out;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }

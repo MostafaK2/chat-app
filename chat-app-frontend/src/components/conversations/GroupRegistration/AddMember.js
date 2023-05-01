@@ -154,6 +154,7 @@ function AddMember(props) {
 
       <div>
         <input
+          className="input"
           type="text"
           placeholder="search user"
           id="searchTerm"
@@ -190,8 +191,12 @@ function AddMember(props) {
       </div>
       <div>
         <p>Selected Users</p>
-        <button onClick={cancelHandler}>cancel</button>
-        <button onClick={saveMembers}>save</button>
+        <button className="button-28" onClick={cancelHandler}>
+          cancel
+        </button>
+        <button className="button-28 accept" onClick={saveMembers}>
+          save
+        </button>
       </div>
     </div>
   );

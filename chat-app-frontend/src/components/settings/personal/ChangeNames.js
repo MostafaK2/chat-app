@@ -42,6 +42,7 @@ function ChangeNames(props) {
   return (
     <div className={classes.overlay}>
       <div className={classes.container}>
+        <h2>Change Name</h2>
         <input
           className={classes.input}
           placeholder="New First Name"
@@ -56,10 +57,10 @@ function ChangeNames(props) {
         ></input>
 
         <div className={classes.child}>
-          <button className={classes.button} onClick={() => props.close()}>
+          <button className="button-28" onClick={() => props.close()}>
             Cancel
           </button>
-          <button className={classes.button} onClick={saveInformation}>
+          <button className="button-28 accept" onClick={saveInformation}>
             Save
           </button>
         </div>

@@ -80,8 +80,8 @@ function LogInPage() {
             onChange={(elem) => setPassword(elem.target.value)}
           ></input>
         </div>
-        <button className="btn" onClick={openRegistration}>Sign Up</button>
-        <button className="btn" onClick={AuthenticateAndNavigate}>Log In</button>
+        <button className="button-28" onClick={openRegistration}>Sign Up</button>
+        <button className="button-28 " onClick={AuthenticateAndNavigate}>Log In</button>
 
         {registrationIsOpen && <Registration close={closeRegistration} />}
         {registrationIsOpen && <Backdrop close={closeRegistration} />}
