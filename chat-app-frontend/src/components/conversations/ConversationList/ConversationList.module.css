@@ -31,7 +31,7 @@
 }
 
 .plusbutton {
-  background-image: url(../images/plusbutton.jpg);
+  background-image: url(../../../assets/plusbutton.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   /* put the height and width of your image here */

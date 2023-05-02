@@ -1,4 +1,5 @@
-import SingleConvBody from "../fullConv/SingleConvBody";
+import SingleConvBody from "../../components/fullConv/SingleConvBody";
+
 import classes from "./MainPage.module.css";
 
 function MainPage() {

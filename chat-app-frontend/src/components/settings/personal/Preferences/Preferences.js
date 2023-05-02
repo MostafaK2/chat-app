@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 import classes from "./Preferences.module.css";
-import highlights from "../../conversations/ConversationItem.module.css";
+import highlights from "../../../conversations/ConversationItem/ConversationItem.module.css";
 
-import nameImg from "../../images/SettingsLogo/changeFLName.png";
-import passImg from "../../images/SettingsLogo/changePassword.png";
-import ChangeNames from "./ChangeNames";
-import ChangePassword from "./ChangePassword";
+import nameImg from "../../../../assets/SettingsLogo/changeFLName.png";
+import passImg from "../../../../assets/SettingsLogo/changePassword.png";
+import ChangeNames from "../ChangeNames/ChangeNames";
+import ChangePassword from "../ChangePassword/ChangePassword";
 
 function Preferences(props) {
   //   const [clickedSection, setClickedSection] = useState(0);

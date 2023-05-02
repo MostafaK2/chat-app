@@ -1,17 +1,17 @@
-import classes from "../../conversations/ConversationItem.module.css";
-import sClasses from "./PersonalSettings.module.css";
+import classes from "../../conversations/ConversationItem/ConversationItem.module.css";
+import sClasses from "../personal/PersonalSettings/PersonalSettings.module.css";
 import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import terms from "../../images/termsChatgbt.pdf";
+import terms from "../../../assets/termsChatgbt.pdf";
 
 function SettingOption(props) {
   const [clickedSection, setClickedSection] = useState(0);
   const navigate = useNavigate();
 
   function changeColor() {
-    if (clickedSection == props.clickedId) {
+    if (clickedSection === props.clickedId) {
       return classes.colorChangeAlt;
     }
     return classes.colorChange;

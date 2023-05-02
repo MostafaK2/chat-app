@@ -1,16 +1,15 @@
-import ConversationItem from "./ConversationItem";
-import ConvSearchHeader from "./ConvSearchHeader";
+import ConversationItem from "../ConversationItem/ConversationItem";
 
 import classes from "./ConversationList.module.css";
 import { useState, useEffect } from "react";
-import AddGroup from "./GroupRegistration/ConversationAdder";
-import Backdrop from "../pages/login/backdrop";
-import AddMember from "./GroupRegistration/AddMember";
-import UserHeader from "../headers/UserHeader";
-import useCurrentLocalState from "../../util/storage";
-import PersonalSettings from "../settings/personal/PersonalSettings";
-import Preferences from "../settings/personal/Preferences";
-import ContactMe from "../pages/ContactMe";
+import AddGroup from "../GroupRegistration/ConversationAdder";
+import Backdrop from "../../../pages/login/backdrop";
+import AddMember from "../GroupRegistration/AddMember";
+import UserHeader from "../../headers/UserHeader/UserHeader";
+import useCurrentLocalState from "../../../util/storage";
+import PersonalSettings from "../../settings/personal/PersonalSettings/PersonalSettings";
+import Preferences from "../../settings/personal/Preferences/Preferences";
+import ContactMe from "../../../pages/ContactMe";
 
 function ListOfConversations(props) {
   const [user] = useCurrentLocalState("", "user");
@@ -21,9 +20,8 @@ function ListOfConversations(props) {
   const [personalSettingsIsOpen, setPersonalSettingsIsOpen] = useState(false);
   const [prefrencesIsOpen, setPrefrencesIsOpen] = useState(false);
   const [contactMeIsOpen, setContactMeIsOpen] = useState(false);
-  
+
   const [registrationId, setRegistrationId] = useState(null);
-  const [conversationId, setConversationId] = useState(null);
   const [currConvId, setCurrConvId] = useState(null);
 
   function openPrefrences() {
@@ -67,12 +65,9 @@ function ListOfConversations(props) {
     setContactMeIsOpen(false);
   }
 
-
-
   function fetchMesseges(id, conversation) {
     setCurrConvId(id);
     const url = "api/v1/conversation/" + id + "/messeges";
-    const msgData = null;
     fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -93,6 +88,7 @@ function ListOfConversations(props) {
   }
   const [username, setUsername] = useState(capitalizeName());
   useEffect(() => {
+    
     setUsername(capitalizeName());
   }, [userMeta]);
 
@@ -152,13 +148,11 @@ function ListOfConversations(props) {
         <Preferences username={username} setUserMeta={setUserMeta} />
       )}
       {contactMeIsOpen && <ContactMe />}
-      
 
       {groupAdderIsOpen && <Backdrop close={closeGroupRegistration} />}
       {personalSettingsIsOpen && <Backdrop close={closePersonalSettings} />}
       {prefrencesIsOpen && <Backdrop close={closePrefrences} />}
       {contactMeIsOpen && <Backdrop close={closeContactMe} />}
-      
     </div>
   );
 }

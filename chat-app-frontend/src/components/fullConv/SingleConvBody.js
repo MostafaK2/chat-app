@@ -1,13 +1,12 @@
-import ListOfConversations from "../conversations/ConversationList";
-import MessegeList from "../messegeComponents/MessegeList";
-import convHeader from "../conversations/ConvSearchHeader";
+import ListOfConversations from "../conversations/ConversationList/ConversationList";
+import MessegeList from "../messegeComponents/MessegeList/MessegeList";
 
 import classes from "./co.module.css";
 import useCurrentLocalState from "../../util/storage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function SingleConvBody() {
-  var [user, setUser] = useCurrentLocalState("", "user");
+  var [user, _] = useCurrentLocalState("", "user");
   user = JSON.parse(user);
   const [conversations, setConversations] = useState([]);
 
@@ -66,7 +65,6 @@ function SingleConvBody() {
           setConversations={setConversations}
           setSwitchWebsock={setSwitchWebsock}
         />
-        {console.log(msgData)}
         <MessegeList
           msgData={msgData}
           convId={clickedConversationId}

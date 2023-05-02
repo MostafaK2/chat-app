@@ -3,7 +3,7 @@ import classes from "./LogInPage.module.css";
 import { useState } from "react";
 import Backdrop from "./backdrop.js";
 import { useNavigate } from "react-router-dom";
-import useCurrentLocalState from "../../../util/storage.js";
+import useCurrentLocalState from "../../util/storage.js";
 
 function LogInPage() {
   const [registrationIsOpen, setRestrationIsOpen] = useState(false);

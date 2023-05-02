@@ -1,13 +1,13 @@
 import classes from "./PersonalSettings.module.css";
-import SettingOption from "./SettingOption";
+import SettingOption from "../SettingOption";
 import { useState } from "react";
 
 // images
-import conf from "../../images/SettingsLogo/conf.png";
-import extra from "../../images/SettingsLogo/extra.png";
-import help from "../../images/SettingsLogo/Help.png";
-import about from "../../images/SettingsLogo/information.png";
-import logout from "../../images/SettingsLogo/logout.png";
+import conf from "../../../../assets/SettingsLogo/conf.png";
+import extra from "../../../../assets/SettingsLogo/extra.png";
+import help from "../../../../assets/SettingsLogo/Help.png";
+import about from "../../../../assets/SettingsLogo/information.png";
+import logout from "../../../../assets/SettingsLogo/logout.png";
 // import report from "../images/SettingsLogo/report.png";
 //end of images
 

@@ -1,6 +1,6 @@
 import classes from "./ChangeNames.module.css";
 import { useState } from "react";
-import useCurrentLocalState from "../../../util/storage";
+import useCurrentLocalState from "../../../../util/storage";
 
 function ChangeNames(props) {
   const [firstName, setFirstName] = useState("");

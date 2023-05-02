@@ -1,4 +1,4 @@
-import classes from "./ChangeNames.module.css";
+import classes from "../ChangeNames/ChangeNames.module.css";
 import { useState } from "react";
 
 function ChangePassword(props) {

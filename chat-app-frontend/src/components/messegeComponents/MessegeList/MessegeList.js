@@ -1,14 +1,14 @@
-import MessegeItem from "./MessegeItem";
-import MessageHeader from "../headers/MessageHeader";
-import ConversationSettings from "../settings/conversational/ConversationSettings";
-import Backdrop from "../pages/login/backdrop";
+import MessegeItem from "../MessegeItem/MessegeItem";
+import MessageHeader from "../../headers/MessageHeader/MessageHeader";
+import ConversationSettings from "../../settings/conversational/ConversationSettings";
+import Backdrop from "../../../pages/login/backdrop";
 
 import classes from "./MessegeList.module.css";
-import { useState, useEffect, useRef, useAnimatedRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { over } from "stompjs";
 import SockJS from "sockjs-client";
-import useCurrentLocalState from "../../util/storage";
+import useCurrentLocalState from "../../../util/storage";
 var stompClient = null;
 // Passed in data from the outside, changes for each users
 

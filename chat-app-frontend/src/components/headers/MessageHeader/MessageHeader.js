@@ -1,5 +1,5 @@
 import classes from "./MessageHeader.module.css";
-import dots from "../images/SettingsLogo/3dots.png";
+import dots from "../../../assets/SettingsLogo/3dots.png";
 function MessageHeader(props) {
   return (
     <div className={classes.sdf}>

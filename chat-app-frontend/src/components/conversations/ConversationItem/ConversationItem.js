@@ -1,5 +1,5 @@
 import classes from "./ConversationItem.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ConversationItem(props) {
   const [clickedCoversation, setClickedCoversation] = useState(0)
@@ -7,7 +7,7 @@ function ConversationItem(props) {
   
   function changeColor(){
     console.log("conversation id",props.convId, "clicked conversattion",clickedCoversation);
-    if(clickedCoversation == props.currConv){
+    if(clickedCoversation === props.currConv){
       return classes.colorChangeAlt;
     }
     return classes.colorChange;

@@ -3,7 +3,7 @@ import classes from "./MessegeItem.module.css";
 
 function MessegeItem(props) {
   function colorChange(num) {
-    if (num == props.curr_user_id) {
+    if (num === props.curr_user_id) {
       return classes.itemStyling;
     } else {
       return classes.itemStylingAlt;
@@ -11,7 +11,7 @@ function MessegeItem(props) {
   }
 
   function colorChangeIcon(num) {
-    if (num == props.curr_user_id) {
+    if (num === props.curr_user_id) {
       return classes.icon1;
     } else {
       return classes.icon2;
@@ -40,21 +40,21 @@ function MessegeItem(props) {
     return icon;
   }
 
-  function timeDisplay() {
-    if (props.time === null) {
-      return null;
-    }
-    const arrTime = props.time.split("T");
-    const date = arrTime[0].slice(5);
-    const time = arrTime[1].slice(0, 5);
+  // function timeDisplay() {
+  //   if (props.time === null) {
+  //     return null;
+  //   }
+  //   const arrTime = props.time.split("T");
+  //   const date = arrTime[0].slice(5);
+  //   const time = arrTime[1].slice(0, 5);
 
-    return (
-      <div className={classes.time}>
-        <div>{date}</div>
-        <div>{time}</div>
-      </div>
-    );
-  }
+  //   return (
+  //     <div className={classes.time}>
+  //       <div>{date}</div>
+  //       <div>{time}</div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <li>

@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import classes from "./login/LogInPage.module.css";
-import landing from "../images/landing.png";
-import ContactMe from "./ContactMe";
-import Backdrop from "./login/backdrop";
+import classes from "../login/LogInPage.module.css";
+
+import landing from "../../assets/landing.png";
+import ContactMe from "../ContactMe";
+import Backdrop from "../login/backdrop";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function LandingPage() {
   return (
     <div className={classes.containerLogin}>
       <div className={classes.login}>
-        <img src={landing} className={classes.center} />
+        <img src={landing} className={classes.center} alt="center" />
         <h2>Chatapp Designed and Developed by Mostafa Kamal</h2>
         <button
           className="btn"

@@ -1,6 +1,6 @@
-import email from "../images/ContactInfoLogo/emaillogo.png";
-import linkedIn from "../images/ContactInfoLogo/linkedInLogo.png";
-import github from "../images/ContactInfoLogo/githubLogo.png";
+import email from "../assets/ContactInfoLogo/emaillogo.png";
+import linkedIn from "../assets/ContactInfoLogo/linkedInLogo.png";
+import github from "../assets/ContactInfoLogo/githubLogo.png";
 
 function ContactMe() {
   const height = 80;
