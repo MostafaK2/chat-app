@@ -1,0 +1,53 @@
+.search-content{
+	border: 1px solid black;
+	align-self: center;
+	padding: auto;
+	margin: 0 5rem 0 5rem;
+	font-size: medium;
+	height: 5rem;
+	border-radius: 10px 10px;
+	background-color: white;
+
+	top: 0;
+    bottom:0;
+    /* position:fixed; */
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.li {
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+.li:hover{
+	background-color: rgb(222, 221, 221);
+}
+
+.selected-user{
+	display: flex;
+	flex-direction: row;
+	
+
+	border: 1px solid black;
+	margin: 0 6rem 0 6rem;
+	align-self: center;
+	font-size: medium;
+
+	top: 0;
+    bottom:0;
+    /* position:fixed; */
+    overflow-y:hidden;
+    overflow-x: scroll;
+	border-radius: 10px 10px;
+	background-color: white;
+	
+}
+
+.selected{
+	padding:0.8rem
+}
+
+.selected:hover{
+	background-color: rgb(222, 221, 221);
+}

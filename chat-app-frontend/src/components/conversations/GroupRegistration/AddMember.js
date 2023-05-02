@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useCurrentLocalState from "../../../util/storage";
+import styles from "./AddMember.module.css";
 
 function useDebounceValue(value, time = 250) {
   const [debounceValue, setDebounceValue] = useState(value);
@@ -147,10 +148,8 @@ function AddMember(props) {
 
   return (
     <div className="registration">
-      <div>
-        <h1>Add Members</h1>
-        <h1>{props.convId}</h1>
-      </div>
+      <h1>Add Members</h1>
+      {/* <h1>{props.convId}</h1> */}
 
       <div>
         <input
@@ -160,37 +159,57 @@ function AddMember(props) {
           id="searchTerm"
           onChange={(elem) => setSearchTerm(elem.target.value)}
         ></input>
-        <div>
-          {searchData.map((elem) => {
-            const display = elem["fname"] + " " + elem["lname"];
-            return elem["id"] !== u2["id"] ? (
-              <li
-                id={elem["id"]}
-                onClick={(event) => handleClick(event, display)}
-                type="text"
-              >
-                {display}
-              </li>
-            ) : null;
-          })}
-        </div>
+
+        {searchData.length > 0 ? (
+          <div className={styles["search-content"]}>
+            {searchData.map((elem) => {
+              const display = elem["fname"] + " " + elem["lname"];
+              return elem["id"] !== u2["id"] ? (
+                <li
+                  className={styles.li}
+                  id={elem["id"]}
+                  onClick={(event) => handleClick(event, display)}
+                  type="text"
+                >
+                  {display}
+                </li>
+              ) : null;
+            })}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
 
       {/* this part of the code written to view the selected users and returns  */}
-      <h2>user view and selector</h2>
-      <div>
-        {console.log("In selected User render", selectedUser)}
-        {selectedUser.map((elem) => {
-          return (
-            <div>
-              <li>{elem["display"]}</li>
-              <button>delete</button>
-            </div>
-          );
-        })}
-      </div>
-      <div>
-        <p>Selected Users</p>
+
+      {selectedUser.length > 0 ? (
+        <>
+          <h2>Selected User</h2>
+          <div className={styles["selected-user"]}>
+            {selectedUser.map((elem) => {
+              return (
+                <div className={styles.selected}>
+                  <li style={{ marginBottom: "1rem" }}>{elem["display"]}</li>
+                  <button
+                    style={{ margin: "0", padding: "0.3rem 0.9rem" }}
+                    className="button-28"
+                    onClick={() => {
+                      setSelectedUser(selectedUser.filter((e) => e !== elem));
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      <div style={{ marginTop: "1rem" }}>
         <button className="button-28" onClick={cancelHandler}>
           cancel
         </button>
